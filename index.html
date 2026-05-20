@@ -37,18 +37,39 @@
             background: #181824;
             border-radius: 12px;
             padding: 24px;
-            margin-bottom: 24px;
+            margin-bottom: 32px;
             border: 1px solid #2a2a40;
             box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+        }
+        .track-image {
+            width: 100%;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            object-fit: cover;
+            aspect-ratio: 1 / 1;
+            background: #10101a;
+            border: 1px solid #222233;
+        }
+        .track-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 8px;
         }
         .track-title {
             font-size: 1.6rem;
             font-weight: bold;
-            margin: 0 0 8px 0;
+            margin: 0;
             letter-spacing: 0.05em;
             background: linear-gradient(45deg, #ff7b7b, #ffae19);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+        }
+        .track-date {
+            font-size: 0.9rem;
+            color: #8888a0;
+            font-weight: 600;
+            letter-spacing: 0.05em;
         }
         .track-artist {
             font-size: 0.9rem;
@@ -77,9 +98,6 @@
             border-left: 3px solid #ff4747;
             letter-spacing: 0.03em;
         }
-        .lyrics-section {
-            margin-bottom: 2rem;
-        }
     </style>
 </head>
 <body>
@@ -89,16 +107,127 @@
     </div>
 
     <div class="container">
+        
+        <!-- Track 1: カタカタ ガラクタ -->
         <div class="track-card">
-            <div class="track-title">SUMMER DAZE</div>
+            <img src="katakata.png" alt="カタカタ ガラクタ Jacket" class="track-image" onerror="this.style.display='none'">
+            <div class="track-header">
+                <h2 class="track-title">カタカタ ガラクタ</h2>
+                <div class="track-date">2026.3</div>
+            </div>
+            <div class="track-artist">Produced by nemu hazama</div>
+            
+            <div class="audio-player-wrapper">
+                <audio controls src="katakata.mp3"></audio>
+            </div>
+
+            <div class="lyrics-box">カタカタ　カラカラ
+回る　回る　ぜんまい
+ピカピカ　ガラクタ
+ようこそ　新鮮な　ユートピア
+
+機械仕掛けの　ぜんまいが
+ギチギチ　胸で　跳ねている
+その表現は　すでに
+使われております　ってね
+
+テンプレ　コピペの　街の中
+ピカソも　たぶん　しかめっつら
+真似るっ？　学ぶっ？
+その境目で　また　バグる
+
+参考　引用　リスペクト
+でも　それだけじゃ　足りないでしょ
+君の　ノイズを　混ぜたなら
+それは　ちゃんと　息をする
+
+ぐるぐる　回って
+キラキラ　壊れて
+へんてこなくらいが　気持ちいい
+ねぇ　そうでしょ？
+
+真似るっ？　学ぶっ？
+いつだって　僕らは
+新鮮な　ユートピア
+作って　壊して　また　笑う
+
+チクタク　ビリビリ
+脳みそで　踊るビート
+へんてこぼこで　最高峰
+ガラクタみたいな　夢を　飛べっ
+
+正解なんて　知らないし
+けど　つまんないのは　もっと嫌
+誰かの　言葉を　なぞっても
+同じ心にゃ　ならないし
+
+ハリボテだらけの　ショーケース
+ご立派な　タグが　並んでる
+でも　汚れた　手のひらに
+いちばん　ホントが　残ってる
+
+エラー　警報　採点中
+それでも　心臓　能天気
+壊れた　ネジで　回るから
+へんてこ光が　出るでしょ
+
+くらくら　するほど
+ギラギラ　したいの
+綺麗じゃなくても　いいからさ
+愛してよ
+
+真似るっ？　学ぶっ？
+いつだって　僕らは
+新鮮な　ユートピア
+塗り替え　繋げて　また　進む
+
+チクタク　ビリビリ
+全身で　刻むビート
+ダサいくらいで　さぁ行こう
+夢中の先へ　飛んじゃって
+
+「その表現は　すでに
+使われております」
+うるさいな
+そんなの　わかってるけど
+ここで　光ってるしかないの
+
+まっさらじゃなきゃ
+意味がないなんて
+誰が　決めたの？
+混ざって　濁って
+それでも　ちゃんと
+新しいでしょ
+
+真似るっ？　学ぶっ？
+その間で　僕らは
+新鮮な　ユートピア
+何度も　何度も　バースデー
+
+チクタク　ギラギラ
+脳内で　はぜるビート
+へんなままで　さぁ異常
+ガラクタ仕掛けで　未来へ　飛べっ
+
+カタカタ　カラカラ
+回る　回る　ぜんまい
+ピカピカ　ガラクタ
+ようこそ　新鮮な　ユートピア</div>
+        </div>
+
+        <!-- Track 2: SUMMER DAZE -->
+        <div class="track-card">
+            <div class="track-header">
+                <h2 class="track-title">SUMMER DAZE</h2>
+                <div class="track-date"></div>
+            </div>
             <div class="track-artist">Produced by nemu hazama</div>
             
             <div class="audio-player-wrapper">
                 <audio controls src="audio.mp3"></audio>
             </div>
 
-            <div class="lyrics-box">
-                <div class="lyrics-section">ayy
+            <div class="lyrics-box">ayy
 蒸っし蒸し
 風死んでる商店街
 祭囃子
@@ -108,9 +237,9 @@
 既読つかねぇアイツ待ち
 convenience ice
 溶ける faster
-もう手ベタベタ nasty</div>
+もう手ベタベタ nasty
 
-                <div class="lyrics-section">焼きそば
+焼きそば
 フランク
 ラムネ
 beer
@@ -128,18 +257,18 @@ beer
 せめぇ地元
 チャリ二ケツで蛇行運転
 先生いたら終わり案件
-でも今夜だけ世界俺ら中心</div>
+でも今夜だけ世界俺ら中心
 
-                <div class="lyrics-section">same town
+same town
 same age
 same school
 same curse
-た伴々集められただけの crew
+ただ集められただけの crew
 来年には
 散り散りになるって
-わかってんのに笑ってる</div>
+わかってんのに笑ってる
 
-                <div class="lyrics-section">ドンッ!!
+ドンッ!!
 って夜空 crack
 赤 青 yellow
 flash flash flash
@@ -152,9 +281,9 @@ noise
 「青春とかクサくね？」
 とか言ってた俺らが
 今日だけちょっと
-終わるの怖ぇ</div>
+終わるの怖ぇ
 
-                <div class="lyrics-section">「東京行くらしい」
+「東京行くらしい」
 「マジ？」
 「へぇ」
 それ以上続かない talk
@@ -170,9 +299,9 @@ semi still alive
 夏休み終盤テンション
 神社の階段
 座って silence
-なのに妙に落ち着く midnight</div>
+なのに妙に落ち着く midnight
 
-                <div class="lyrics-section">仲間？
+仲間？
 友情？
 青春？
 …いやいや(笑)
@@ -183,9 +312,9 @@ semi still alive
 暑いし
 でも
 終わる瞬間だけ
-why so beautiful...</div>
+why so beautiful...
 
-                <div class="lyrics-section">最後の尺玉
+最後の尺玉
 腹まで響く bass
 歓声 wave
 夜風 fade
@@ -198,8 +327,8 @@ why so beautiful...</div>
 靴擦れした踵
 最悪で最高の
 last summer days</div>
-            </div>
         </div>
+
     </div>
 
 </body>
