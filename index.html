@@ -33,7 +33,6 @@
             font-weight: 300;
         }
         
-        /* 横スクロールコンテナ */
         .track-container {
             display: flex;
             overflow-x: auto;
@@ -43,7 +42,6 @@
             align-items: flex-start;
         }
         
-        /* スクロールバー非表示 */
         .track-container::-webkit-scrollbar {
             display: none;
         }
@@ -72,7 +70,10 @@
             aspect-ratio: 1 / 1;
             background: #0a0a0f;
             border: 1px solid #1a1a24;
+            pointer-events: none;
+            user-select: none;
         }
+        
         .track-header {
             display: flex;
             justify-content: space-between;
@@ -102,7 +103,7 @@
             background: #08080b;
             padding: 12px;
             border-radius: 12px;
-            margin-bottom: 24px;
+            margin-bottom: 16px;
             border: 1px solid #1f1f2e;
         }
         audio {
@@ -110,6 +111,32 @@
             outline: none;
             height: 40px;
         }
+        
+        .btn-group {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 24px;
+            flex-wrap: wrap;
+        }
+        .action-btn {
+            background: #1a1a24;
+            color: #a0a0b8;
+            border: 1px solid #2a2a3a;
+            padding: 8px 16px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 0.85rem;
+            letter-spacing: 0.05em;
+            transition: all 0.3s;
+            flex: 1;
+            text-align: center;
+        }
+        .action-btn.active {
+            background: #e0e0e0;
+            color: #08080b;
+            border-color: #e0e0e0;
+        }
+        
         .lyrics-box {
             background: transparent;
             padding: 0;
@@ -138,11 +165,11 @@
         <h1>nemu hazama studio</h1>
     </div>
 
-    <div class="track-container">
+    <div class="track-container" id="scroll-container">
         
         <!-- トラック1: カタカタ ガラクタ -->
         <div class="track-card">
-            <img src="katakata.png" alt="カタカタ ガラクタ" class="track-image" onerror="this.style.display='none'">
+            <img src="katakata.png" alt="カタカタ ガラクタ" class="track-image" draggable="false" oncontextmenu="return false;" onerror="this.style.display='none'">
             <div class="track-header">
                 <h2 class="track-title">カタカタ ガラクタ</h2>
                 <div class="track-date">2026.3</div>
@@ -150,7 +177,12 @@
             <div class="track-artist">Produced by nemu hazama</div>
             
             <div class="audio-player-wrapper">
-                <audio controls src="katakata.mp3"></audio>
+                <audio id="audio-katakata" controls controlsList="nodownload" oncontextmenu="return false;" src="katakata.mp3"></audio>
+            </div>
+            
+            <div class="btn-group">
+                <button class="action-btn" onclick="rewindAudio('audio-katakata')">⏪ 最初から</button>
+                <button class="action-btn" onclick="toggleRepeat(this, 'audio-katakata')">🔁 リピート: OFF</button>
             </div>
 
             <div class="lyrics-box">カタカタ　カラカラ
@@ -249,7 +281,7 @@
 
         <!-- トラック2: SUMMER DAZE -->
         <div class="track-card">
-            <img src="summer.png" alt="SUMMER DAZE" class="track-image" onerror="this.style.display='none'">
+            <img src="summer.png" alt="SUMMER DAZE" class="track-image" draggable="false" oncontextmenu="return false;" onerror="this.style.display='none'">
             <div class="track-header">
                 <h2 class="track-title">SUMMER DAZE</h2>
                 <div class="track-date">2026.5</div>
@@ -257,7 +289,12 @@
             <div class="track-artist">Produced by nemu hazama</div>
             
             <div class="audio-player-wrapper">
-                <audio controls src="summer.mp3"></audio>
+                <audio id="audio-summer" controls controlsList="nodownload" oncontextmenu="return false;" src="summer.mp3"></audio>
+            </div>
+            
+            <div class="btn-group">
+                <button class="action-btn" onclick="rewindAudio('audio-summer')">⏪ 最初から</button>
+                <button class="action-btn" onclick="toggleRepeat(this, 'audio-summer')">🔁 リピート: OFF</button>
             </div>
 
             <div class="lyrics-box">ayy
@@ -364,5 +401,27 @@ last summer days</div>
 
     </div>
 
+    <script>
+        // 曲を最初(0秒)に戻して再生する処理
+        function rewindAudio(audioId) {
+            const audio = document.getElementById(audioId);
+            audio.currentTime = 0;
+            audio.play();
+        }
+
+        // リピートボタンの切り替え処理
+        function toggleRepeat(btn, audioId) {
+            const audio = document.getElementById(audioId);
+            if (audio.loop) {
+                audio.loop = false;
+                btn.classList.remove('active');
+                btn.innerText = '🔁 リピート: OFF';
+            } else {
+                audio.loop = true;
+                btn.classList.add('active');
+                btn.innerText = '🔁 リピート: ON';
+            }
+        }
+    </script>
 </body>
 </html>
