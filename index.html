@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -9,23 +8,208 @@
         body {
             margin: 0;
             padding: 0;
-            background-color: #1a1a1a;
-            color: #ffffff;
-            font-family: sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
+            background-color: #0d0d11;
+            color: #f0f0f5;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            display: block;
+            min-height: 100vh;
+        }
+        .header {
+            padding: 20px;
+            text-align: center;
+            background: linear-gradient(to bottom, #14141f, transparent);
+            border-bottom: 1px solid #222233;
+        }
+        .header h1 {
+            margin: 0;
+            font-size: 1.2rem;
+            letter-spacing: 0.2em;
+            color: #8a8aff;
+            font-weight: 400;
         }
         .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px 20px 100px 20px;
+            box-sizing: border-box;
+        }
+        .track-card {
+            background: #181824;
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 24px;
+            border: 1px solid #2a2a40;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+        }
+        .track-title {
+            font-size: 1.6rem;
+            font-weight: bold;
+            margin: 0 0 8px 0;
+            letter-spacing: 0.05em;
+            background: linear-gradient(45deg, #ff7b7b, #ffae19);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .track-artist {
+            font-size: 0.9rem;
+            color: #8888a0;
+            margin-bottom: 20px;
+        }
+        .audio-player-wrapper {
+            background: #10101a;
+            padding: 12px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            border: 1px solid #222233;
+        }
+        audio {
+            width: 100%;
+            outline: none;
+        }
+        .lyrics-box {
+            background: #11111a;
+            border-radius: 8px;
+            padding: 20px;
+            line-height: 1.8;
+            font-size: 1.05rem;
+            color: #d1d1e0;
+            white-space: pre-wrap;
+            border-left: 3px solid #ff4747;
+            letter-spacing: 0.03em;
+        }
+        .lyrics-section {
+            margin-bottom: 2rem;
+        }
+        .upload-tip {
+            font-size: 0.8rem;
+            color: #666680;
             text-align: center;
+            margin-top: 10px;
+            line-height: 1.4;
         }
     </style>
 </head>
 <body>
-    <div class="container">
+
+    <div class="header">
         <h1>nemu hazama studio</h1>
-        <p>アトリエ建築中...</p>
     </div>
+
+    <div class="container">
+        <div class="track-card">
+            <div class="track-title">SUMMER DAZE</div>
+            <div class="track-artist">Produced by nemu hazama</div>
+            
+            <div class="audio-player-wrapper">
+                <!-- ここにSunoで作った曲のファイル（audio.mp3など）を指定すると流れるようになります -->
+                <audio controls src="audio.mp3"></audio>
+                <div class="upload-tip">※同じフォルダに「audio.mp3」という名前で曲のファイルをアップロードすると、ここで再生できるようになるよ！</div>
+            </div>
+
+            <div class="lyrics-box">
+                <div class="lyrics-section">ayy
+蒸っし蒸し
+風死んでる商店街
+祭囃子
+鳴りっぱなし
+脳みそバグる大体
+「集合、神社前」
+既読つかねぇアイツ待ち
+convenience ice
+溶ける faster
+もう手ベタベタ nasty</div>
+
+                <div class="lyrics-section">焼きそば
+フランク
+ラムネ
+beer
+ソース匂いでキマる mid-summer
+浴衣 girl
+下駄ズレ pain
+「歩けない」とか言いつつ笑ってる
+汗だく boy
+だるそう face
+でもなんか帰りたくねぇ
+ぎゅうぎゅう crowded
+イラつく loudness
+なのに一人だとちょい寂しい
+だっせぇ青春
+せめぇ地元
+チャリ二ケツで蛇行運転
+先生いたら終わり案件
+でも今夜だけ世界俺ら中心</div>
+
+                <div class="lyrics-section">same town
+same age
+same school
+same curse
+たまたま集められただけの crew
+来年には
+散り散りになるって
+わかってんのに笑ってる</div>
+
+                <div class="lyrics-section">ドンッ!!
+って夜空 crack
+赤 青 yellow
+flash flash flash
+うるせぇくらい綺麗な fireworks
+汗
+熱
+風
+noise
+全部ぐちゃぐちゃ mixed up
+「青春とかクサくね？」
+とか言ってた俺らが
+今日だけちょっと
+終わるの怖ぇ</div>
+
+                <div class="lyrics-section">「東京行くらしい」
+「マジ？」
+「へぇ」
+それ以上続かない talk
+夢とか future とか
+語れるほどガキでもねぇし
+屋台の灯り
+テカる横顔
+火薬の煙でぼやける輪郭
+誰かが歌う変なラップ
+知らんガキ泣いてる
+semi still alive
+俺ら almost dead
+夏休み終盤テンション
+神社の階段
+座って silence
+なのに妙に落ち着く midnight</div>
+
+                <div class="lyrics-section">仲間？
+友情？
+青春？
+…いやいや(笑)
+そんな綺麗なもんじゃねぇ
+ウザいし
+ダルいし
+狭いし
+暑いし
+でも
+終わる瞬間だけ
+why so beautiful...</div>
+
+                <div class="lyrics-section">最後の尺玉
+腹まで響く bass
+歓声 wave
+夜風 fade
+駅前へ流れる people
+「じゃあまたな」
+その「また」が
+もう昔みたいじゃない
+ベタつく手
+溶けた ice
+靴擦れした踵
+最悪で最高の
+last summer days</div>
+            </div>
+        </div>
+    </div>
+
 </body>
 </html>
