@@ -8,47 +8,70 @@
         body {
             margin: 0;
             padding: 0;
-            background-color: #0d0d11;
-            color: #f0f0f5;
+            background-color: #08080b;
+            color: #e0e0e0;
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-            display: block;
+            display: flex;
+            flex-direction: column;
             min-height: 100vh;
+            overflow-x: hidden;
         }
         .header {
-            padding: 20px;
+            padding: 24px 20px;
             text-align: center;
-            background: linear-gradient(to bottom, #14141f, transparent);
-            border-bottom: 1px solid #222233;
+            background: rgba(8, 8, 11, 0.9);
+            border-bottom: 1px solid #1a1a24;
+            position: sticky;
+            top: 0;
+            z-index: 10;
         }
         .header h1 {
             margin: 0;
-            font-size: 1.2rem;
-            letter-spacing: 0.2em;
-            color: #8a8aff;
-            font-weight: 400;
+            font-size: 1.1rem;
+            letter-spacing: 0.3em;
+            color: #a0a0b8;
+            font-weight: 300;
         }
-        .container {
-            max-width: 600px;
-            margin: 0 auto;
-            padding: 20px 20px 100px 20px;
-            box-sizing: border-box;
+        
+        /* Horizontal Scroll Container */
+        .track-container {
+            display: flex;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            padding: 40px 20px;
+            gap: 20px;
+            align-items: flex-start;
         }
+        
+        /* Hide scrollbar */
+        .track-container::-webkit-scrollbar {
+            display: none;
+        }
+        .track-container {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+
         .track-card {
-            background: #181824;
-            border-radius: 12px;
+            flex: 0 0 85vw;
+            max-width: 500px;
+            scroll-snap-align: center;
+            background: #101016;
+            border-radius: 16px;
             padding: 24px;
-            margin-bottom: 32px;
-            border: 1px solid #2a2a40;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+            box-sizing: border-box;
+            border: 1px solid #1f1f2e;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
         }
+        
         .track-image {
             width: 100%;
-            border-radius: 8px;
-            margin-bottom: 20px;
+            border-radius: 12px;
+            margin-bottom: 24px;
             object-fit: cover;
             aspect-ratio: 1 / 1;
-            background: #10101a;
-            border: 1px solid #222233;
+            background: #0a0a0f;
+            border: 1px solid #1a1a24;
         }
         .track-header {
             display: flex;
@@ -57,46 +80,55 @@
             margin-bottom: 8px;
         }
         .track-title {
-            font-size: 1.6rem;
-            font-weight: bold;
+            font-size: 1.4rem;
+            font-weight: 600;
             margin: 0;
             letter-spacing: 0.05em;
-            background: linear-gradient(45deg, #ff7b7b, #ffae19);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            color: #ffffff;
         }
         .track-date {
-            font-size: 0.9rem;
-            color: #8888a0;
-            font-weight: 600;
+            font-size: 0.85rem;
+            color: #66667a;
+            font-weight: 400;
             letter-spacing: 0.05em;
         }
         .track-artist {
-            font-size: 0.9rem;
-            color: #8888a0;
-            margin-bottom: 20px;
+            font-size: 0.85rem;
+            color: #66667a;
+            margin-bottom: 24px;
+            letter-spacing: 0.05em;
         }
         .audio-player-wrapper {
-            background: #10101a;
-            padding: 16px;
-            border-radius: 8px;
+            background: #08080b;
+            padding: 12px;
+            border-radius: 12px;
             margin-bottom: 24px;
-            border: 1px solid #222233;
+            border: 1px solid #1f1f2e;
         }
         audio {
             width: 100%;
             outline: none;
+            height: 40px;
         }
         .lyrics-box {
-            background: #11111a;
-            border-radius: 8px;
-            padding: 20px;
-            line-height: 1.8;
-            font-size: 1.05rem;
-            color: #d1d1e0;
+            background: transparent;
+            padding: 0;
+            line-height: 1.9;
+            font-size: 0.95rem;
+            color: #a0a0b8;
             white-space: pre-wrap;
-            border-left: 3px solid #ff4747;
-            letter-spacing: 0.03em;
+            letter-spacing: 0.05em;
+            height: 40vh;
+            overflow-y: auto;
+            padding-right: 10px;
+        }
+        
+        .lyrics-box::-webkit-scrollbar {
+            width: 4px;
+        }
+        .lyrics-box::-webkit-scrollbar-thumb {
+            background: #2a2a3a;
+            border-radius: 4px;
         }
     </style>
 </head>
@@ -106,11 +138,11 @@
         <h1>nemu hazama studio</h1>
     </div>
 
-    <div class="container">
+    <div class="track-container">
         
         <!-- Track 1: カタカタ ガラクタ -->
         <div class="track-card">
-            <img src="katakata.png" alt="カタカタ ガラクタ Jacket" class="track-image" onerror="this.style.display='none'">
+            <img src="katakata.png" alt="カタカタ ガラクタ" class="track-image" onerror="this.style.display='none'">
             <div class="track-header">
                 <h2 class="track-title">カタカタ ガラクタ</h2>
                 <div class="track-date">2026.3</div>
@@ -217,6 +249,7 @@
 
         <!-- Track 2: SUMMER DAZE -->
         <div class="track-card">
+            <div class="track-image" style="display:flex; align-items:center; justify-content:center; color:#2a2a3a; font-size:0.8rem; letter-spacing:0.1em;">NO IMAGE</div>
             <div class="track-header">
                 <h2 class="track-title">SUMMER DAZE</h2>
                 <div class="track-date"></div>
@@ -224,7 +257,7 @@
             <div class="track-artist">Produced by nemu hazama</div>
             
             <div class="audio-player-wrapper">
-                <audio controls src="audio.mp3"></audio>
+                <audio controls src="summer.mp3"></audio>
             </div>
 
             <div class="lyrics-box">ayy
@@ -263,7 +296,7 @@ same town
 same age
 same school
 same curse
-ただ集められただけの crew
+た伴々集められただけの crew
 来年には
 散り散りになるって
 わかってんのに笑ってる
@@ -319,7 +352,7 @@ why so beautiful...
 歓声 wave
 夜風 fade
 駅前へ流れる people
-「じゃあまたな」
+「じゃあまたな"
 その「また」が
 もう昔みたいじゃない
 ベタつく手
